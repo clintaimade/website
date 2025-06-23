@@ -323,6 +323,7 @@
       <input type="text" placeholder="Your Name" id="nameInput" />
       <input type="email" placeholder="Your Email" id="emailInput" />
       <input type="text" placeholder="WhatsApp Number" id="whatsappInput" />
+      <button onclick="closeModal()" style="background:#333; color:#fff; margin-bottom: 1rem;">Back</button>
       <button onclick="submitOrder()">Submit</button>
     </div>
   </div>
@@ -338,6 +339,14 @@
       const modalTitle = document.getElementById('modalTitle');
       modalTitle.textContent = `Ordering ${packageType.toUpperCase()} Package for ${service.toUpperCase()}`;
       modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('orderModal').style.display = 'none';
+      document.getElementById('nameInput').value = '';
+      document.getElementById('emailInput').value = '';
+      document.getElementById('whatsappInput').value = '';
+      selectedPackage = {};
     }
 
     function submitOrder() {
